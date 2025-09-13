@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registration Successful - CodeStorm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f8f9ff;
+      --card:#ffffff;
+      --muted:#60677a;
+      --accent:#6d28d9;
+      --accent-2:#0ea5e9;
+      --radius:14px;
+      --max-w:700px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      background:linear-gradient(180deg,#eef2ff 0%, var(--bg) 80%);
+      color:#1c1e21;
+      display:flex;justify-content:center;align-items:center;
+      min-height:100vh;padding:20px;
+    }
+    .card{
+      background:var(--card);
+      padding:32px;
+      border-radius:var(--radius);
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      border:1px solid rgba(0,0,0,0.05);
+      max-width:var(--max-w);
+      width:100%;
+      text-align:center;
+    }
+    h1{
+      font-size:30px;
+      font-weight:800;
+      margin-bottom:14px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .details{
+      margin:20px 0;
+      font-size:15px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+    .qr{
+      margin:20px auto;
+      max-width:220px;
+      background:#f9fafb;
+      padding:10px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.1);
+      box-shadow:0 4px 10px rgba(0,0,0,0.06);
+    }
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:12px;
+      font-weight:600;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .btn:hover{opacity:0.9;transform:translateY(-1px)}
+    @media(max-width:500px){
+      .card{padding:24px}
+      h1{font-size:24px}
+      .details{font-size:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Congratulations!</h1>
+    <p style="font-size:16px;color:#374151;margin-bottom:20px">
+      Your registration for <b>CodeStorm – Python Pursuit</b> has been successfully submitted.
+    </p>
+
+    <div class="details">
+      📅 <b>Date:</b> 26th September 2025 <br>
+      ⏰ <b>Time:</b> 9:30 AM Onwards <br>
+      📍 <b>Venue:</b> Ilahia College of Engineering and Technology <br>
+      Intelli AI Lab & Cipher Lab <br>
+      🎓 <b>Organised By:</b> Dept. of Artificial Intelligence & Cyber Security
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr">
+      <img src="event-qr-code.png" alt="Event QR Code" style="width:100%;border-radius:10px;">
+    </div>
+    <p class="details" style="margin-top:10px;font-size:13px">
+      Scan the QR Code to join Our Whatsapp Group, or
+    </p>
+    <!-- WhatsApp Group Button -->
+    <a href="YOUR_WHATSAPP_GROUP_LINK" class="btn" target="_blank">Click Here to Join WhatsApp Group</a>
+    </div>
+</body>
+</html>

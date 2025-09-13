@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeStorm — Think Hard. Debug Smart. Code Fast.</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f8f9ff;
+      --card:#ffffff;
+      --muted:#60677a;
+      --accent:#6d28d9;
+      --accent-2:#0ea5e9;
+      --radius:14px;
+      --max-w:1150px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      background:var(--bg);
+      color:#1c1e21;
+      -webkit-font-smoothing:antialiased;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    .container{width:100%;max-width:var(--max-w);}
+    /* Header */
+    header{
+      display:flex;align-items:center;justify-content:space-between;
+      margin-bottom:28px;position:sticky;top:0;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(6px);padding:16px 30px; /* added padding inside */
+      border-radius:14px; /* soft rounded edges */
+      z-index:1000;
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:65px;height:65px;border-radius:16px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;color:#fff;font-size:26px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.15)
+    }
+    .brand h1{
+      margin:0;font-size:26px;letter-spacing:-0.5px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      background-clip:text;
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      font-weight:900;text-transform:uppercase;
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{
+      background:transparent;border:1px solid rgba(0,0,0,0.08);
+      padding:10px 14px;border-radius:10px;color:var(--accent);
+      font-weight:600;text-decoration:none;font-size:14px;transition:0.3s
+    }
+    .btn:hover{background:rgba(0,0,0,0.03)}
+    .cta{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;
+      border:none;cursor:pointer;transition:0.3s;text-decoration:none
+    }
+    .cta:hover{opacity:0.9;transform:translateY(-2px)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:stretch}
+    .card{
+      background:var(--card);padding:28px;border-radius:var(--radius);
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      border:1px solid rgba(0,0,0,0.05);
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .hero h2{margin:0 0 10px 0;font-size:28px;font-weight:700}
+    .lead{color:var(--muted);margin:0 0 18px 0;font-size:15px}
+  
+    :root{
+      --bg:#f8f9ff;
+      --card:#ffffff;
+      --muted:#60677a;
+      --accent:#6d28d9;
+      --accent-2:#0ea5e9;
+      --radius:14px;
+      --max-w:1150px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      background:var(--bg);
+      color:#1c1e21;
+      -webkit-font-smoothing:antialiased;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    .container{width:100%;max-width:var(--max-w);}
+
+    /* Header */
+    header{
+      display:flex;align-items:center;justify-content:space-between;
+      margin-bottom:28px;position:sticky;top:0;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(6px);padding:16px 30px;
+      border-radius:14px;
+      z-index:1000;
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .brand h1{
+      margin:0; /* remove extra bottom margin */
+      font-size:26px;letter-spacing:-0.5px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      background-clip:text;
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      font-weight:900;text-transform:uppercase;
+    }
+    .brand p.small{
+      margin:2px 0 0; /* tighten gap above tagline */
+      font-size:14px;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    /* Features pills */
+    .features{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .pill{background:rgba(0,0,0,0.04);padding:8px 12px;border-radius:10px;font-size:13px;color:var(--accent-2);font-weight:500}
+
+    /* Info stacked layout */
+    .info{display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+    .info-item{display:flex;flex-direction:column;}
+    .info-label{font-size:13px;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:4px}
+    .info-value{font-size:15px;color:#1c1e21;font-weight:600;line-height:1.4}
+
+    .divider{height:1px;background:rgba(0,0,0,0.05);margin:16px 0;border-radius:2px}
+
+    /* Contacts */
+    .contacts{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+    .contact-card{
+      flex:1;min-width:160px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff;padding:12px 14px;border-radius:12px;
+      display:flex;align-items:center;gap:10px;
+      font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,0.12);
+      transition:0.3s;text-decoration:none;
+    }
+    .contact-card:hover{transform:translateY(-2px);opacity:0.95}
+    .contact-card span{font-size:14px;line-height:1.2}
+    .wa-icon{font-size:20px}
+
+    /* Why join */
+    .why-join{margin-top:18px}
+    .why-join h4{margin:0 0 8px 0;font-size:16px;font-weight:700;color:var(--accent)}
+    .why-list{list-style:disc;padding-left:20px;margin:0;color:var(--muted);font-size:14px}
+
+    /* Countdown */
+    .countdown{text-align:center;padding:20px;margin:20px auto;border-radius:14px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#fff;font-weight:700;font-size:20px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.15);}
+
+    /* Rounds new layout */
+    .rounds-col{display:flex;flex-direction:column;gap:16px;margin:18px 0;}
+    .round-col{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);background:linear-gradient(90deg, rgba(109,40,217,0.06), rgba(14,165,233,0.06));transition:0.3s;}
+    .round-col:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+    .round-left{flex:0 0 120px;text-align:left}
+    .round-left h4{margin:0;font-size:16px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700}
+    .round-sub{display:block;font-size:13px;color:var(--muted);font-weight:600;margin-top:2px}
+    .round-right{flex:1;color:#333;font-size:14px}
+
+    /* Pro tip box */
+    .protip{margin-top:12px;padding:14px 16px;border-left:4px solid var(--accent-2);background:rgba(14,165,233,0.08);border-radius:10px;font-size:14px;color:#1c1e21;font-weight:500;}
+
+    /* Sponsors logos */
+    .sponsors{display:flex;justify-content:center;gap:40px;margin-top:20px;flex-wrap:wrap;}
+    .sponsors img{height:60px;object-fit:contain;filter:grayscale(30%);opacity:0.9;}
+
+    /* Powered by */
+    .powered-by{text-align:center;margin-top:40px;}
+    .powered-by h4{font-size:16px;font-weight:700;color:var(--accent);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px;}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Mobile refinements */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+    @media (max-width:600px){
+      body{padding:20px 12px;}
+      .hero h2{font-size:22px;}
+      .lead{font-size:14px;}
+      .info-label{font-size:12px;}
+      .info-value{font-size:13px;}
+      .countdown{font-size:16px;padding:14px;}
+      .contact-card{flex:1 1 100%;}
+      .sponsors{gap:20px;}
+      .sponsors img{height:50px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div>
+          <h1> CodeStorm </h1>
+          <p class="small muted">Think Hard. Debug Smart. Code Fast.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="https://abhiram-ars.github.io/CodeStorm25/registration" class="cta" style="text-align:centre">Register Now</a>
+        <!-- <a class="btn" href=""></a>
+        <a class="btn" href=""></a>         -->
+      </nav>
+    </header>
+
+    <!-- Countdown -->
+    <div class="countdown" id="countdown">
+      Registration closes in: <span id="time"></span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Left Info Card -->
+      <div class="card">
+        <div>
+          <h2>CodeStorm — Python Pursuit coding showdown</h2>
+          <p class="lead">A three-round competition to test logic, debugging, and real-time coding skills. Teams of two compete for prestige, prizes, and fully sponsored internships.</p>
+
+          <div class="features">
+            <div class="pill">Python Pursuit</div>
+            <div class="pill">Fully Sponsored Internship worth 8K</div>
+            <div class="pill">Certificates with KTU Points</div>
+          </div>
+
+          <!-- Event Info (stacked layout) -->
+          <div class="info">
+            <div class="info-item">
+              <div class="info-label">Date</div>
+              <div class="info-value">26th September 2025</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Venue</div>
+              <div class="info-value">Ilahia College of Engineering and Technology, Muvattupuzha</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Registration Fees</div>
+              <div class="info-value">Rs. 100/- (Per Team)</div>
+            </div>
+          </div>
+
+          <!-- Why Join -->
+          <div class="why-join">
+            <h4>Why Join?</h4>
+            <ul class="why-list">
+              <li>Exclusive chance to win a fully sponsored internship.</li>
+              <li>Sharpen your coding, debugging, and teamwork skills.</li>
+              <li>Earn certificates with KTU activity points.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contacts -->
+        <div style="margin-top:20px;">
+          <div class="divider"></div>
+          <h3 style="margin-top:0">Contact Us</h3>
+          <div class="contacts">
+            <a href="https://wa.me/919747848675" target="_blank" class="contact-card">
+              <span class="wa-icon">💬</span><span>Alvin Biju<br>9747848675</span>
+            </a>
+            <a href="https://wa.me/917034718372" target="_blank" class="contact-card">
+              <span class="wa-icon">📞</span><span>Abhiram S<br>7034718372</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Rounds Breakdown -->
+      <aside style="display:flex;flex-direction:column;justify-content:stretch;">
+        <div class="card" id="rounds-section" style="flex:1">
+          <h3 style="margin-top:0">Rounds Breakdown</h3>
+          
+          <div class="rounds-col">
+            <div class="round-col">
+              <div class="round-left">
+                <h4>Round 1</h4>
+                <span class="round-sub">CodeQuiz</span>
+              </div>
+              <div class="round-right">
+                <p>Output prediction, syntax checks and conceptual MCQs.</p>
+              </div>
+            </div>
+
+            <div class="round-col">
+              <div class="round-left">
+                <h4>Round 2</h4>
+                <span class="round-sub">Bug Hunt</span>
+              </div>
+              <div class="round-right">
+                <p>Debug Python code snippets with syntax, logic, and runtime issues.</p>
+              </div>
+            </div>
+
+            <div class="round-col">
+              <div class="round-left">
+                <h4>Round 3</h4>
+                <span class="round-sub">Code Rush</span>
+              </div>
+              <div class="round-right">
+                <p>Timed live coding challenges that test algorithmic skills and teamwork.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pro Tip Box -->
+          <div class="protip">
+            💡 <strong>Pro Tip:</strong> Practice debugging and output prediction beforehand – they carry more weight than you think!
+          </div>
+
+          <!-- Register Now Button -->
+          <div class="register-section">
+            <a href="registration.html" class="cta">Register Now</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- How to Register Section -->
+    <section class="card" style="margin-top:28px" id="how-to-register">
+      <h3 style="margin-top:0">How to Register</h3>
+      <ol style="font-size:15px; color:#1c1e21; font-weight:500;">
+        <li>Form a team of 2 and decide a team lead.</li>
+        <li>Click “Register Now” and fill the registration form.</li>
+        <li>Upload your payment QR code and enter transaction ID.</li>
+        <li>Turn up at the venue by 09:00 on 26th September 2025 with College ID.</li>
+      </ol>
+
+      <div class="divider"></div>
+
+      <div class="register-section">
+        <a href="registration.html" class="cta">Register Now</a>
+      </div>
+    </section>
+
+    <!-- Sponsors -->
+    <div class="powered-by">
+      <h3>POWERED BY</h3>
+      <div class="sponsors">
+        <img src="https://i.ibb.co/BH2K9xPp/Ilahia-1.png" alt="Sponsor 1">
+        <img src="https://i.ibb.co/tTcSH73k/LekTech.png" alt="Sponsor 2">
+        <img src="https://i.ibb.co/Xfrdc7q6/SLC.png" alt="Sponsor 3">
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      © CodeStorm 2025 — Organised by Department of Artificial Intelligence and Cyber Security, Ilahia College of Engineering and Technology
+    </footer>
+  </div>
+
+  <!-- Countdown Script -->
+  <script>
+    const countdown = document.getElementById("time");
+    const deadline = new Date("Sep 23, 2025 23:59:59").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "Registration Closed";
+        document.getElementById("countdown").style.background = "#ef4444";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+</body>
+
+</html>
