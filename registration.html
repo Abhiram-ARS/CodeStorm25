@@ -36,6 +36,7 @@
     .hero h1{
       background:linear-gradient(90deg,var(--accent),var(--accent-2));
       -webkit-background-clip:text;
+      background-clip:text;
       -webkit-text-fill-color:transparent;
       font-weight:800;
       font-size:32px;
@@ -202,13 +203,27 @@
   <script>
   document.getElementById('registrationForm').addEventListener('submit', function(e){
     e.preventDefault();
-    const formData = new FormData(this);
-    const payload = new URLSearchParams();
-    formData.forEach((value,key)=>{ payload.append(key,value) });
+    const formData = {
+      name1: document.getElementById("leadName").value,
+      email1: document.getElementById("leadEmail").value,
+      ph1: document.getElementById("leadPhone").value,
+      college1: document.getElementById("leadCollege").value,
+      dept1: document.getElementById("leadDept").value,
+      sem1: document.getElementById("leadSem").value,
 
-    fetch("YOUR_GOOGLE_SCRIPT_WEBAPP_URL_HERE",{
+      name2: document.getElementById("member2Name").value,
+      email2: document.getElementById("member2Email").value,
+      ph2: document.getElementById("member2Phone").value,
+      college2: document.getElementById("member2College").value,
+      dept2: document.getElementById("member2Dept").value,
+      sem2: document.getElementById("member2Sem").value,
+
+      transId: document.getElementById("transactionID").value
+    };
+    console.log(formData)
+    fetch("https://script.google.com/macros/s/AKfycby_zoHDropd_nKWbbJ9unY5gz9HbKPJb-o3rtYIRDQOZdi2mt3xMkCXT1eKr2JZJM4U/exec",{
       method:"POST",
-      body: payload
+      body: JSON.stringify(formData)
     })
     .then(res=>res.json())
     .then(data=>{
