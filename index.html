@@ -220,7 +220,7 @@
 
     <!-- Countdown -->
     <div class="countdown" id="countdown">
-      Registration closes in: <span id="time"></span>
+      <span id="time"> Registration Opens Soon </span>
     </div>
 
     <!-- Hero Section -->
@@ -241,7 +241,7 @@
           <div class="info">
             <div class="info-item">
               <div class="info-label">Date</div>
-              <div class="info-value">26th September 2025</div>
+              <div class="info-value">- To Be Notified -</div>
             </div>
             <div class="info-item">
               <div class="info-label">Venue</div>
@@ -382,12 +382,12 @@
       const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
       const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
       const seconds = Math.floor((distance % (1000*60)) / 1000);
-
-      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      
     }, 1000);
   </script>
 </body>
 
 
 </html>
+
 
