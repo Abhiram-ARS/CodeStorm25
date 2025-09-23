@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Program Postponed — Notice</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ffb86b;--muted:#9aa4b2;--ok:#8bd5a8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background:linear-gradient(180deg,#071026 0%, #0b1220 100%);color:#e6eef6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .container{max-width:900px;width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.7);overflow:hidden}
+    .header{display:flex;align-items:center;gap:16px;padding:28px;background:linear-gradient(90deg, rgba(255,184,107,0.06), rgba(139,213,168,0.02));}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--ok));display:flex;align-items:center;justify-content:center;font-weight:700;color:#072025}
+    h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .body{display:grid;grid-template-columns:1fr 320px;gap:24px;padding:28px}
+    .notice{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:20px;border-radius:10px}
+    .notice h2{margin:0 0 8px;font-size:18px;color:var(--accent)}
+    .notice p{margin:0 0 12px;color:#dce9f5}
+    .muted{color:var(--muted);font-size:14px}
+    .info-card{background:#071727;padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .small{font-size:13px}
+    footer{padding:16px 28px;background:rgba(255,255,255,0.01);display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+    @media (max-width:800px){.body{grid-template-columns:1fr;}.header{padding:20px}.body{padding:20px}footer{flex-direction:column;gap:8px;align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <main class="container" role="main" aria-labelledby="main-heading">
+    <header class="header">
+      <div>
+        <h1 id="main-heading">Important Notice — Program Postponed</h1>
+        <p class="lead">We apologize for the inconvenience. Please read the update below.</p>
+      </div>
+    </header>
+
+    <section class="body" aria-label="postponement details">
+      <div>
+        <article class="notice" aria-labelledby="notice-title">
+          <h2 id="notice-title">Program postponed due to internal issues</h2>
+          <p>We regret to inform you that the scheduled program has been <strong>postponed due to some internal issues</strong>. Registration is <strong>temporarily closed</strong> until further notice.</p>
+
+          <p class="muted">New date of the event will be informed later. We are working to resolve the situation quickly and will update this page as soon as a new date is confirmed.</p>
+
+          <hr style="margin:16px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+          <div class="small">If you already registered, your registration will remain on hold and we will contact you via the email address you provided. For urgent inquiries, please use the contact details on the right.</div>
+        </article>
+      </div>
+
+      <aside class="info-card" aria-label="contact and updates">
+        <h3 style="margin:0 0 8px">Stay updated</h3>
+        <p class="muted small">We'll post the new date here and send email updates to registered participants.</p>
+
+        <div style="margin-top:12px">
+          <strong>Contact</strong>
+          <div class="small muted">Abhiram S  : <a href="tel:+917034718372">+91 70347 18372</a></div>
+          <div class="small muted">Alvin Biju : <a href="tel:+919747848675">+91 97478 48675</a></div>
+        </div>
+
+      </aside>
+    </section>
+
+    <footer>
+      <div class="small">Thank you for your understanding.</div>
+      <div class="small muted">Last updated: <time datetime="2025-09-23">September 23, 2025</time></div>
+    </footer>
+  </main>
+</body>
+</html>
